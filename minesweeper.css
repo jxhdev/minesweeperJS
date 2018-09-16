@@ -1,12 +1,24 @@
+body {
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
 table {
   border-collapse: collapse;
 }
 
 td {
-  width: 4em;
-  height: 4em;
+  width: 2.5em;
+  height: 2.5em;
   text-align: center;
-  border: solid 1px black;
+}
+
+.unclicked {
+  border: 3px outset #999;
+  -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+  background-color: lightgray;
 }
 
 .flagged {
@@ -20,30 +32,49 @@ td {
 
 .n0 {
   color: lightgray;
+  border: none;
+  box-shadow: none;
+  background-color: white;
 }
 .n1 {
-  color: grey;
+  color: blue;
+  border: none;
+  box-shadow: none;
 }
 .n2 {
   color: lightgreen;
+  border: none;
+  box-shadow: none;
 }
 .n3 {
   color: seagreen;
+  border: none;
+  box-shadow: none;
 }
 .n4 {
   color: green;
+  border: none;
+  box-shadow: none;
 }
 .n5 {
   color: lightcoral;
+  border: none;
+  box-shadow: none;
 }
 .n6 {
   color: mediumvioletred;
+  border: none;
+  box-shadow: none;
 }
 .n7 {
   color: red;
+  border: none;
+  box-shadow: none;
 }
 .n8 {
   color: darkred;
+  border: none;
+  box-shadow: none;
 }
 
 .n0:after {
@@ -77,6 +108,9 @@ td {
 .mine {
   background-color: red;
   color: black;
+  border: 3px outset #999;
+  -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
 }
 .mine:after {
   content: 'X';

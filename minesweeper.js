@@ -33,7 +33,7 @@ class Cell {
     // check if cell if flagged
     // need to set prev board before checking neighbors?
     if (!this.flagged) {
-      this.board.game.prevBoard = this.board.cells.map(b => b.map(c => c))
+      this.board.game.prevBoard = this.board.cells.map(b => b.map(c => c));
       this.revealAndCheckNeighbors();
       console.log(this.board.numCells);
       // check if mine and end game if true also add logic for win condition
@@ -96,7 +96,7 @@ class Cell {
       return 'n' + this.number;
     }
   }
-  // assign class 
+  // assign class
   show(showMines) {
     document.getElementById(this.id).className = this.getContent(showMines);
   }
@@ -152,7 +152,8 @@ class Board {
       for (let cell of row) {
         const tcell = document.createElement('td');
         tcell.id = cell.id;
-        tcell.className = cell.getContent(false);
+        tcell.classList = cell.getContent(false);
+        tcell.classList.add('unclicked');
         tcell.addEventListener('click', cell.handleClick.bind(cell));
         tcell.addEventListener('contextmenu', cell.handleRightClick.bind(cell));
         trow.appendChild(tcell);
@@ -160,7 +161,7 @@ class Board {
       board.appendChild(trow);
     }
   }
-  
+
   // in order to show current board
   showBoard() {
     // need to dump old board
@@ -189,7 +190,7 @@ class Game {
     // create new instance of board, pass in game to board
     this.board = new Board(this, width, height);
     // to allow undo feature you would need
-    this.prevBoard = this.board.cells.map(b => b.map(c => c))
+    this.prevBoard = this.board.cells.map(b => b.map(c => c));
     // place mine
     this.board.placeMines(numMines);
     // draw the css of board
@@ -205,9 +206,9 @@ class Game {
     }
     // condition to check
     if (condition === 'Lose') {
-      alert('You lose');
+      alert('You Lost.');
     } else if (condition === 'Winner') {
-      alert('You WINNN');
+      alert('You Win!');
     }
   }
 
@@ -217,5 +218,5 @@ class Game {
   // }
 }
 
-const game = new Game(11, 11, 3);
+const game = new Game(11, 11, 8);
 document.getElementById('undo').addEventListener('click', game.undo.bind(game));
